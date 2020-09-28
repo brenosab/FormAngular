@@ -1,0 +1,16 @@
+
+$color-form-control: rgb(70, 171, 218);
+$color-form-group: rgb(255, 213, 97);
+
+.form-group{
+    padding-left: 10px;
+    word-break: normal;
+}
+
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+  }
+  
+  .ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+  }
