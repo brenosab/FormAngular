@@ -9,8 +9,47 @@ $color-form-group: rgb(255, 213, 97);
 
 .ng-valid[required], .ng-valid.required  {
     border-left: 5px solid #42A948; /* green */
-  }
+}
   
-  .ng-invalid:not(form)  {
-    border-left: 5px solid #a94442; /* red */
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
+
+.mat-icon{
+  font-size: 20px;
+}
+
+.input-group.md-form.form-sm.form-4 input {
+  border: 1px solid #bdbdbd;
   }
+  .input-group.md-form.form-sm.form-4 input[type=text]:focus:not([readonly]).lime-border {
+  border: 1px solid #cddc39;
+  box-shadow: none;
+  }
+  .input-group.md-form.form-sm.form-3 input {
+  border: 1px solid #bdbdbd;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  }
+  .input-group.md-form.form-sm.form-3 input[type=text]:focus:not([readonly]).red-border {
+  border: 1px solid #ef9a9a;
+  box-shadow: none;
+  }
+  .input-group.md-form.form-sm.form-3 input[type=text]:focus:not([readonly]).amber-border {
+  border: 1px solid #ffca28;
+  box-shadow: none;
+  }
+  .input-group.md-form.form-sm.form-3 input[type=text]:focus:not([readonly]).blue-border {
+  border: 1px solid #64b5f6;
+  box-shadow: none;
+  }
+  .input-group.md-form.form-sm.form-5 input {
+  border: 1px solid #bdbdbd;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  }
+  .input-group.md-form.form-sm.form-5 input[type=text]:focus:not([readonly]).purple-border {
+  border: 1px solid #ce93d8;
+  box-shadow: none;
+  }
+
