@@ -1,10 +1,14 @@
 
 $color-form-control: rgb(70, 171, 218);
 $color-form-group: rgb(255, 213, 97);
+$color-form-group-secondary: rgb(218, 182, 84);
 
-.form-group{
-    padding-left: 10px;
-    word-break: normal;
+.container{
+  padding-left: 10px;
+  word-break: normal;
+  border-radius: 15px;
+  box-shadow: 2px 2px 2px 2px rgba(134, 134, 134, 0.4);
+  padding-top: 10px;
 }
 
 .ng-valid[required], .ng-valid.required  {
@@ -18,6 +22,15 @@ $color-form-group: rgb(255, 213, 97);
 .mat-icon{
   font-size: 20px;
 }
+
+.input-group{
+  height: 10px;
+}
+
+.input-button{
+  background: $color-form-control;
+}
+
 
 .input-group.md-form.form-sm.form-4 input {
   border: 1px solid #bdbdbd;

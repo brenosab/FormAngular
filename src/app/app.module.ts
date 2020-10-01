@@ -13,9 +13,19 @@ import { MatSliderModule } from '@angular/material/slider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { InputsModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import {MatButtonModule} from '@angular/material/button';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NameEditorComponent, ProfileEditorComponent],
+  declarations: [
+    AppComponent, 
+    HomeComponent, 
+    NameEditorComponent, 
+    ProfileEditorComponent, 
+    HeaderComponent, 
+    FooterComponent
+  ],
   imports: [
     BrowserModule, 
     AppRoutingModule, 
@@ -24,7 +34,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     MatSliderModule,
     BrowserAnimationsModule,
     MatIconModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    MatButtonModule,
     // InputsModule,
     // WavesModule,
     // ButtonsModule

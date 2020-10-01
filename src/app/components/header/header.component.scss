@@ -1,0 +1,13 @@
+$color-form-group: rgb(255, 213, 97);
+$color-form-group-secondary: rgb(243, 201, 85);
+$color-form-control: rgb(70, 171, 218);
+
+.navbar{
+    background-color: $color-form-group-secondary;
+    color: rgb(255, 255, 255);
+    font-size: 34px; 
+}
+
+.navbar-item{
+    font-size: 24px;
+}
