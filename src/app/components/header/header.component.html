@@ -1,16 +1,30 @@
-  <nav class="navbar is-dark">
+  <nav class="navbar is-dark row">
     <!-- logo -->
-    <div class="navbar-brand">
+    <div class="navbar-brand col-4">
       <a class="navbar-item">
         <img  height="50" src="assets/img/angular-logo.png">
       </a>
     </div>
     <!-- menu -->
-    <div class="navbar-menu">
+    <div class="navbar-menu col-4">
       <div class="navbar-start">
         <a class="navbar-item" routerLink=""> Home </a>
         <a class="navbar-item" routerLink="contact"> Contact </a>
         <a class="navbar-item" routerLink="users"> Users</a>
       </div>
+    </div>
+
+    <div class="navbar-collapse col-3">
+        <a class="navbar-item" id="collapse" routerLink=""> Olá! Bem-Vindo </a>
+        <div ngbDropdown class="d-inline-block" id="teste">
+            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle> 
+                <mat-icon id="teste">reorder</mat-icon>
+            </button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button ngbDropdownItem>Action - 1</button>
+              <button ngbDropdownItem>Another Action</button>
+              <button ngbDropdownItem>Something else is here</button>
+            </div>
+        </div> 
     </div>
   </nav>
