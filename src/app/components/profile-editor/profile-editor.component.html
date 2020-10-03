@@ -15,7 +15,9 @@
                 <input input="text" formControlName="firstName" placeholder="First Name" aria-label="First Name"
                 class="form-control ng-untouched ng-pristine ng-invalid" aria-describedby="basic-addon1" minlength="2" required>        
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1"><mat-icon>search</mat-icon></span>
+                    <button mat-raised-button color="primary" id="basic-addon1">
+                        <mat-icon>search</mat-icon>
+                    </button>
                 </div>
             </div>
             <div *ngIf="profileForm.controls?.firstName?.errors &&(profileForm.controls?.firstName?.touched || profileForm.controls?.firstName?.dirty)" 
