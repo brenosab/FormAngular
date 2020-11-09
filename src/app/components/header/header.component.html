@@ -21,9 +21,16 @@
                 <mat-icon id="teste">reorder</mat-icon>
             </button>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-              <button ngbDropdownItem>Action - 1</button>
-              <button ngbDropdownItem>Another Action</button>
-              <button ngbDropdownItem>Something else is here</button>
+              <button 
+                routerLink="/home" 
+                routerLinkActive="active" 
+                ngbDropdownItem>Cadastro de Usuários
+              </button>
+              <button 
+                routerLink="/table" 
+                routerLinkActive="active" 
+                ngbDropdownItem>Lista de Usuários
+              </button>
             </div>
         </div> 
     </div>
