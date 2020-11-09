@@ -12,11 +12,11 @@ $color-form-header: rgb(3, 50, 180);
   border-radius: 15px 15px 0px 0px;
   font-size: 20px;
 }
-// .container{
-//   word-break: normal;
-//   border-radius: 15px;
-//   box-shadow: 2px 2px 2px 2px rgba(134, 134, 134, 0.4);
-// }
+.container{
+  word-break: normal;
+  border-radius: 15px;
+  box-shadow: 2px 2px 2px 2px rgba(134, 134, 134, 0.4);
+}
 
 .ng-valid[required], .ng-valid.required  {
     border-left: 5px solid #42A948; /* green */
@@ -72,21 +72,3 @@ $color-form-header: rgb(3, 50, 180);
   border: 1px solid #ce93d8;
   box-shadow: none;
   }
-
-
-
-.container {
-    margin-top: 30px;
-}
-
-.add-car {
-    margin-bottom: 30px;
-}
-
-.list-car {
-    margin-bottom: 50px;
-}
-
-.btn-add-car {
-    margin-right: 10px;
-}
