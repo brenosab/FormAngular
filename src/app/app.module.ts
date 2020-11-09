@@ -17,6 +17,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatRadioModule } from '@angular/material/radio';  
 import { HttpClientModule } from '@angular/common/http';
+import { TableUserEditorComponent } from './components/table-user-editor/table-user-editor.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     NameEditorComponent, 
     ProfileEditorComponent, 
     HeaderComponent, 
-    FooterComponent
+    FooterComponent, 
+    TableUserEditorComponent
   ],
   imports: [
     BrowserModule, 
