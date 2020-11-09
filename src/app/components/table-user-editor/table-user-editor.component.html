@@ -17,9 +17,19 @@
             </thead>
             <tbody>
               <tr *ngFor="let user of users">
-                <td>{{user.nome}}</td>
+                <td>{{user.id}}</td>
                 <td>{{user.nome}}</td>
                 <td>{{user.cpf}}</td>
+                <td>
+                  <span class="float-right">
+                    <button class="btn btn-outline-warning mb-1 btn-md">
+                      Atualizar
+                    </button>
+                    <button class="btn btn-outline-danger mb-1 btn-md">
+                      Remover
+                    </button>
+                  </span>
+                </td>
               </tr>
             </tbody>
         </table>
