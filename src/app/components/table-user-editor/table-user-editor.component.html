@@ -1,38 +1,38 @@
 <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item active" aria-current="page">Gerenciamento de Usuários</li>
-    </ol>
-  </nav>
-  <div class="container">
-    <div class="card list-user">
-      <h5 class="card-header">Lista de Usuários</h5>
-      <div class="card-body">
-        <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Nome</th>
-                <th scope="col">CPF</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let user of users">
-                <td>{{user.id}}</td>
-                <td>{{user.nome}}</td>
-                <td>{{user.cpf}}</td>
-                <td>
-                  <span class="float-right">
-                    <button class="btn btn-outline-warning mb-1 btn-md">
-                      Atualizar
-                    </button>
-                    <button class="btn btn-outline-danger mb-1 btn-md">
-                      Remover
-                    </button>
-                  </span>
-                </td>
-              </tr>
-            </tbody>
-        </table>
-      </div>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Gerenciamento de Usuários</li>
+  </ol>
+</nav>
+<div class="container">
+  <div class="card list-user">
+    <h5 class="card-header">Lista de Usuários</h5>
+    <div class="card-body">
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Nome</th>
+              <th scope="col">CPF</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <td>{{user.id}}</td>
+              <td>{{user.nome}}</td>
+              <td>{{user.cpf}}</td>
+              <td>
+                <span class="float-right">
+                  <button class="btn btn-outline-warning mb-1 btn-md" (click)="goToDetalhesByService(user)">
+                    Atualizar
+                  </button>
+                  <button class="btn btn-outline-danger mb-1 btn-md">
+                    Remover
+                  </button>
+                </span>
+              </td>
+            </tr>
+          </tbody>
+      </table>
     </div>
   </div>
+</div>
