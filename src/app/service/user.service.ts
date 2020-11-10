@@ -10,7 +10,7 @@ import { User } from '../models/user';
 })
 export class UserService {
 
-  url = 'https://localhost:44340/api/usuario/'; // api rest fake
+  url = 'https://localhost:44340/api/usuario'; // api rest fake
   
   // injetando o HttpClient
   constructor(private httpClient: HttpClient) { }
@@ -20,9 +20,16 @@ export class UserService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   }
 
- // Obtem todos os carros
+ // Obtem todos os usuários
  getUsers(): Observable<User[]> {
   return this.httpClient.get<User[]>(this.url)
+    .pipe(
+      retry(2),
+      catchError(this.handleError))
+}
+ // Obtem usuário pelo id
+ getUser(id): Observable<User> {
+  return this.httpClient.get<User>(`${this.url}/${id}`)
     .pipe(
       retry(2),
       catchError(this.handleError))

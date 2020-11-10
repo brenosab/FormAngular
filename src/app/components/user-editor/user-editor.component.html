@@ -1,0 +1,41 @@
+<form [formGroup]="profileForm" class="form-group container">   
+    <div class="row form-group containerHeader">
+        <div class="md-6 input-group">
+            <label>Cadastro de Usuário</label>
+        </div>
+    </div>    
+    <div class="row form-group">
+        <div class="col-md-3">
+            <label>Nome:</label>
+            <div class="md-form input-group">
+                <input input="text" formControlName="nome" placeholder="First Name" aria-label="First Name"
+                class="form-control ng-untouched ng-pristine ng-invalid" aria-describedby="basic-addon1" minlength="2" required>        
+                <div class="input-group-prepend">
+                    <button mat-raised-button color="primary" id="basic-addon1">
+                        <mat-icon>search</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <div *ngIf="profileForm.controls?.firstName?.errors &&(profileForm.controls?.firstName?.touched || profileForm.controls?.firstName?.dirty)" 
+            class="alert alert-danger">
+                Name is required
+            </div>
+        </div>
+        <div class="col-md-3 form-group">
+            <label>CPF:</label>
+            <div class="md-form input-group">
+                <input input="number" formControlName="cpf" aria-label="Last Name"
+                class="form-control ng-untouched ng-pristine ng-invalid" aria-describedby="basic-addon1" required>        
+                <div class="input-group-prepend">
+                    <button mat-raised-button color="primary" id="basic-addon1">
+                        <mat-icon>search</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <div *ngIf="profileForm.controls?.lastName?.errors &&(profileForm.controls?.lastName?.touched || profileForm.controls?.lastName?.dirty)" 
+            class="alert alert-danger">
+                Cpf is required
+            </div>
+        </div>
+    </div>
+</form> 
