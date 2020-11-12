@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
 import { FormsModule } from '@angular/forms';
-import { NameEditorComponent } from './components/name-editor/name-editor.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileEditorComponent } from './components/profile-editor/profile-editor.component';
 import { MatSliderModule } from '@angular/material/slider';
@@ -19,17 +18,17 @@ import { MatRadioModule } from '@angular/material/radio';
 import { HttpClientModule } from '@angular/common/http';
 import { TableUserEditorComponent } from './components/table-user-editor/table-user-editor.component';
 import { UserEditorComponent } from './components/user-editor/user-editor.component';
+import { MainPageEditorComponent } from './components/main-page-editor/main-page-editor.component';
 
 @NgModule({
   declarations: [
     AppComponent, 
     HomeComponent, 
-    NameEditorComponent, 
     ProfileEditorComponent, 
     HeaderComponent, 
     FooterComponent, 
     TableUserEditorComponent, 
-    UserEditorComponent
+    UserEditorComponent, MainPageEditorComponent
   ],
   imports: [
     BrowserModule, 
