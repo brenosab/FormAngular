@@ -1,48 +1,38 @@
-
 $color-form-control: rgb(70, 171, 218);
 $color-form-group: rgb(255, 213, 97);
 $color-form-group-secondary: rgb(218, 182, 84);
 $color-form-header: rgb(3, 50, 180);
 
-.row{
-  padding: 10px;
-}
-
 .containerHeader {
-  padding: 20px;
+  padding: 10px;
   background-color: $color-form-header;
   color: white;
   align-items: center;
-  border-radius: 15px 15px 0px 0px;
+  border-radius: 0px 0px 15px 15px;
   font-size: 20px;
 }
 .container{
   word-break: normal;
   border-radius: 15px;
   box-shadow: 2px 2px 2px 2px rgba(134, 134, 134, 0.4);
-  height: 160px;
 }
 
 .ng-valid[required], .ng-valid.required  {
-    border-left: 5px solid #42A948; /* green */
+  border-left: 5px solid #42A948; /* green */
 }
   
 .ng-invalid:not(form)  {
   border-left: 5px solid #a94442; /* red */
 }
 
-.mat-icon{
-  font-size: 20px;
-}
-
-.input-group{
-  height: 10px;
+.cards{
+  font-size: 90px;
+  color: #000;
 }
 
 .input-button{
   background: $color-form-control;
 }
-
 
 .input-group.md-form.form-sm.form-4 input {
   border: 1px solid #bdbdbd;
