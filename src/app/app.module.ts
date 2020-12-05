@@ -1,6 +1,6 @@
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
@@ -20,6 +20,9 @@ import { TableUserEditorComponent } from './components/table-user-editor/table-u
 import { UserEditorComponent } from './components/user-editor/user-editor.component';
 import { MainPageEditorComponent } from './components/main-page-editor/main-page-editor.component';
 
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+registerLocaleData(localePt);
 @NgModule({
   declarations: [
     AppComponent, 
@@ -46,7 +49,7 @@ import { MainPageEditorComponent } from './components/main-page-editor/main-page
     MatRadioModule,  
     HttpClientModule,
   ],
-  providers: [],
+  providers: [ { provide: LOCALE_ID, useValue: 'pt-BR' } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

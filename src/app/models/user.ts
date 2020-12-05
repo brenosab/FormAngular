@@ -1,5 +1,8 @@
 export interface User {
-    id: bigint;
+    idUsuario: bigint;
     nome: string;
     cpf: string;
+    email: string;
+    dataNascimento: Date;
+    tipoUsuario: number;
 }
