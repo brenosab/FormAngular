@@ -10,7 +10,7 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
 })
 export class UserService {
 
-  url = 'http://localhost:63364/api/usuario/'; // api rest fake
+  url = 'http://localhost:63364/api/usuario'; // api rest fake
   
   // injetando o HttpClient
   constructor(private httpClient: HttpClient) { }

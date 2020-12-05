@@ -23,16 +23,15 @@ export class TableUserEditorComponent implements OnInit {
   }
   getUsers() {
     this.userService.getUsers().subscribe((dados: any) => {
-      this.users = dados.users;
+      this.users = dados.usuarios;
     });
   }
   goToDetalhesByService(user){
-    this.router.navigate(['/user', { id: user.id }]);
+    this.router.navigate(['/user', { id: user.idUsuario }]);
   }
   
   cleanForm(form: NgForm) {
     this.getUsers();
     form.resetForm();
-    //this.user = {} as User;
   }
 }

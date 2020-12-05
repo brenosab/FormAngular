@@ -13,13 +13,15 @@
               <th scope="col">Id</th>
               <th scope="col">Nome</th>
               <th scope="col">CPF</th>
+              <th scope="col">Email</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let user of users">
-              <td>{{user.id}}</td>
+              <td>{{user.idUsuario}}</td>
               <td>{{user.nome}}</td>
               <td>{{user.cpf}}</td>
+              <td>{{user.email}}</td>
               <td>
                 <span class="float-right">
                   <button class="btn btn-outline-warning mb-1 btn-lg" (click)="goToDetalhesByService(user)">
