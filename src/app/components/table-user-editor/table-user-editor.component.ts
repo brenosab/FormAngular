@@ -30,6 +30,13 @@ export class TableUserEditorComponent implements OnInit {
     this.router.navigate(['/user', { id: user.idUsuario }]);
   }
   
+  delete(user : User){
+    this.userService.delete(user.idUsuario)
+    .subscribe(response =>{
+      console.log(response);
+    });
+  }
+
   cleanForm(form: NgForm) {
     this.getUsers();
     form.resetForm();

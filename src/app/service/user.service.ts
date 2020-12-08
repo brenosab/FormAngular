@@ -38,7 +38,7 @@ export class UserService {
 post(data): Observable<any> {
   return this.httpClient.post<any>(this.url, data)
     .pipe(
-      retry(2),
+      retry(0),
       catchError(this.handleError))
 }
 
@@ -59,5 +59,9 @@ post(data): Observable<any> {
       'error'
     )
     return throwError(errorMessage);
+  }
+
+  delete(id): Observable<any> {
+    return this.httpClient.delete(`${this.url}/${id}`);
   }
 }
