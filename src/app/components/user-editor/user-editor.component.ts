@@ -5,7 +5,6 @@ import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../../service/user.service';
 import { Validators } from '@angular/forms';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
-import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-user-editor',
@@ -55,23 +54,26 @@ export class UserEditorComponent implements OnInit {
             _userType = '';
             break;
         }
-
-        var _date = this.user.dataNascimento.toString().substring(0,10);
-        var _date2 = _date.replace("-","/");
-        var _date3 = _date2.replace("-","/");
-        console.log(_date3);
         
         this.profileForm.setValue({
           id: this.user.idUsuario,
           nome: this.user.nome,
           cpf: this.user.cpf,
           email: this.user.email,
-          dataNascimento: new Date(_date3),
+          dataNascimento: new Date(this.user.dataNascimento),
           tipoUsuario: this.user.tipoUsuario,
           userType: _userType 
         });
       });
     }
+  }
+
+  formataData(data: string) : string {
+    var dia = data.substring(8, 10);
+    var mes = data.substring(5, 7);
+    var ano = data.substring(0, 4);
+    const _data = dia + "/" + mes + "/" + ano;
+    return _data;
   }
 
   post(){
@@ -97,18 +99,27 @@ export class UserEditorComponent implements OnInit {
       this.userService
       .post(this.profileForm.value)
       .subscribe(hero => {
-        if(hero.dados === "OK"){
+        console.log(hero);
+        if(hero.idUsuario !== null){
           Swal.fire(
             'Success',
             'Usuário atualizado.',
             'success'
-          )
+          ).then((result) =>{
+            if(result.isConfirmed){
+              window.location.reload();
+            }
+          })
         }else{
           Swal.fire(
             'Error',
             'Não foi possível atualizar usuário',
             'error'
-          )
+          ).then((result) =>{
+            if(result.isConfirmed){
+              window.location.reload();
+            }
+          })
         }
       });
     }else{
