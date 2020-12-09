@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../service/user.service';
-import { User } from '../../models/user';
+import { UserService } from '../../../service/user.service';
+import { User } from '../../../models/user';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2/dist/sweetalert2.js';

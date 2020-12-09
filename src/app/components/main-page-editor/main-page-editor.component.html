@@ -23,13 +23,25 @@
             </div>    
         </div>
         <div class="col-md-4 container">
-            <div class="row form-group containerHeader">
-                <div class="md-6 input-group">
+            <div class="row">
+                <div class="col-md-4 offset-md-4">
+                    <mat-icon class="cards">qr_code</mat-icon>
+                </div>
+            </div>
+            <div class="row">
+                <div class="text-center col-md-4 offset-md-4">
                     <label>Produtos</label>
                 </div>
             </div>
-            <div class="row form-group">
-                <label> \ em Desenvolvimento... \ </label>
+            <div class="row">
+                <button class="col-md-6" mat-raised-button color="primary" id="basic-addon1" routerLink="/product-table" 
+                routerLinkActive="active" >
+                    <mat-icon>search</mat-icon>Lista
+                </button>
+                <button class="col-md-6" mat-raised-button color="primary" id="basic-addon1" routerLink="/product" 
+                routerLinkActive="active" >
+                    <mat-icon>add</mat-icon>Cadastro
+                </button>
             </div>    
         </div>
     </div>

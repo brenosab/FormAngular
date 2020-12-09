@@ -16,9 +16,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatRadioModule } from '@angular/material/radio';  
 import { HttpClientModule } from '@angular/common/http';
-import { TableUserEditorComponent } from './components/table-user-editor/table-user-editor.component';
-import { UserEditorComponent } from './components/user-editor/user-editor.component';
+import { TableUserEditorComponent } from './components/user/table-user-editor/table-user-editor.component';
+import { UserEditorComponent } from './components/user/user-editor/user-editor.component';
 import { MainPageEditorComponent } from './components/main-page-editor/main-page-editor.component';
+import { TableProductEditorComponent } from './components/product/table-product-editor/table-product-editor.component';
 
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
@@ -31,6 +32,7 @@ registerLocaleData(localePt);
     HeaderComponent, 
     FooterComponent, 
     TableUserEditorComponent, 
+    TableProductEditorComponent,
     UserEditorComponent, MainPageEditorComponent
   ],
   imports: [
