@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../models/user';
+import { User } from '../../../models/user';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { UserService } from '../../service/user.service';
+import { UserService } from '../../../service/user.service';
 import { Validators } from '@angular/forms';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 
@@ -35,7 +35,6 @@ export class UserEditorComponent implements OnInit {
     if(userId !== null){
       this.userService.getUser(userId).subscribe((dados: any) => {
         this.user = dados;
-        console.log(this.user);
         var _userType = "";
         switch (this.user.tipoUsuario) {
           case 1:
@@ -53,8 +52,7 @@ export class UserEditorComponent implements OnInit {
           default:
             _userType = '';
             break;
-        }
-        
+        }        
         this.profileForm.setValue({
           id: this.user.idUsuario,
           nome: this.user.nome,
@@ -99,7 +97,6 @@ export class UserEditorComponent implements OnInit {
       this.userService
       .post(this.profileForm.value)
       .subscribe(hero => {
-        console.log(hero);
         if(hero.idUsuario !== null){
           Swal.fire(
             'Success',
@@ -123,7 +120,6 @@ export class UserEditorComponent implements OnInit {
         }
       });
     }else{
-      console.log(this.profileForm.value.userType);
       Swal.fire({        
         text:'Preencha todos os campos para finalizar o cadastro',
         icon:'warning',

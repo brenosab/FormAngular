@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../service/user.service';
-import { User } from '../../models/user';
+import { UserService } from '../../../service/user.service';
+import { User } from '../../../models/user';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 @Component({
   selector: 'app-table-user-editor',
@@ -33,7 +34,27 @@ export class TableUserEditorComponent implements OnInit {
   delete(user : User){
     this.userService.delete(user.idUsuario)
     .subscribe(response =>{
-      console.log(response);
+      if(response.idUsuario !== null){
+        Swal.fire(
+          'Success',
+          'Usuário removido.',
+          'success'
+        ).then((result) =>{
+          if(result.isConfirmed){
+            window.location.reload();
+          }
+        })
+      }else{
+        Swal.fire(
+          'Error',
+          'Não foi possível remover o usuário',
+          'error'
+        ).then((result) =>{
+          if(result.isConfirmed){
+            window.location.reload();
+          }
+        })
+      }
     });
   }
 
