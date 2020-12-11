@@ -6,13 +6,15 @@ import { UserEditorComponent } from './components/user/user-editor/user-editor.c
 import { MainPageEditorComponent } from './components/main-page-editor/main-page-editor.component';
 
 import { TableProductEditorComponent } from './components/product/table-product-editor/table-product-editor.component';
+import { ProductEditorComponent } from './components/product/product-editor/product-editor.component';
 
 const routes: Routes = [
   { path: 'table', component: TableUserEditorComponent },
   { path: 'home', component: ProfileEditorComponent },
   { path: 'user', component: UserEditorComponent },
   { path: '', component: MainPageEditorComponent },
-  { path: 'product-table', component: TableProductEditorComponent }
+  { path: 'product-table', component: TableProductEditorComponent },
+  { path: 'product', component: ProductEditorComponent }
 ];
 
 @NgModule({

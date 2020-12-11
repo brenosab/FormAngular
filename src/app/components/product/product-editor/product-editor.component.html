@@ -1,0 +1,62 @@
+<form [formGroup]="profileForm" class="form-group container">   
+    <div class="row form-group containerHeader">
+        <div class="md-6 input-group">
+            <label>Cadastro de Usuário</label>
+        </div>
+    </div>    
+    <div class="row form-group">
+        <div class="col-md-6 form-group">
+            <label>Código:</label>
+            <div class="md-form input-group">
+                <input input="number" formControlName="codigo" aria-label="Código"
+                class="form-control ng-untouched ng-pristine ng-invalid" aria-describedby="basic-addon1" required>        
+                <div class="input-group-prepend">
+                    <button mat-raised-button color="primary" id="basic-addon1">
+                        <mat-icon>search</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <div *ngIf="profileForm.controls?.codigo?.errors &&(profileForm.controls?.codigo?.touched || profileForm.controls?.codigo?.dirty)" 
+            class="alert alert-danger">
+                Code is required
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label>Descrição:</label>
+            <div class="md-form input-group">
+                <input input="text" formControlName="descricao" aria-label="Código"
+                class="form-control ng-untouched ng-pristine ng-invalid" aria-describedby="basic-addon1" minlength="2" required>        
+            </div>
+            <div *ngIf="profileForm.controls?.descricao?.errors &&(profileForm.controls?.descricao?.touched || profileForm.controls?.descricao?.dirty)" 
+            class="alert alert-danger">
+                Description is required
+            </div>
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-md-6 form-group">
+            <label>Valor:</label>
+            <div class="md-form input-group">
+                <input input="number" formControlName="valor" aria-label="Valor"
+                class="form-control ng-untouched ng-pristine ng-invalid" aria-describedby="basic-addon1" required>        
+            </div>
+            <div *ngIf="profileForm.controls?.valor?.errors &&(profileForm.controls?.valor?.touched || profileForm.controls?.valor?.dirty)" 
+            class="alert alert-danger">
+                Value is required
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div class="row">
+        <div class="col-md-12" >
+            <span class="float-right">
+                <button mat-raised-button color="primary" (click)="post()">
+                    Submit
+                </button>
+            </span>
+        </div>
+    </div>
+</form> 

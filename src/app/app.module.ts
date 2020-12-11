@@ -23,6 +23,7 @@ import { TableProductEditorComponent } from './components/product/table-product-
 
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import { ProductEditorComponent } from './components/product/product-editor/product-editor.component';
 registerLocaleData(localePt);
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ registerLocaleData(localePt);
     FooterComponent, 
     TableUserEditorComponent, 
     TableProductEditorComponent,
-    UserEditorComponent, MainPageEditorComponent
+    UserEditorComponent, MainPageEditorComponent, ProductEditorComponent
   ],
   imports: [
     BrowserModule, 
