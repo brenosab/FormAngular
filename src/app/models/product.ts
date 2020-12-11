@@ -1,6 +1,6 @@
 export interface Product {
     idProduto: bigint;
-    //codigo: number;
+    codigo: number;
     descricao: string;
-    //valor: number;
+    valor: number;
 }

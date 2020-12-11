@@ -26,6 +26,13 @@ export class ProductService {
       catchError(this.handleError))
   }
 
+  post(data): Observable<any> {
+    return this.httpClient.post<any>(this.url, data)
+      .pipe(
+        retry(0),
+        catchError(this.handleError))
+  }
+  
   // Manipulação de erros
   handleError(error: HttpErrorResponse) {
     let errorMessage = '';
