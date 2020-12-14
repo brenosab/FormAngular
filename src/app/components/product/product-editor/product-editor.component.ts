@@ -13,7 +13,7 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
 })
 export class ProductEditorComponent implements OnInit {
   profileForm = new FormGroup({
-    id: new FormControl(''),
+    idProduto: new FormControl(0),
     codigo: new FormControl('',Validators.required),
     descricao: new FormControl('',Validators.required),
     valor: new FormControl('', Validators.required)
@@ -24,6 +24,18 @@ export class ProductEditorComponent implements OnInit {
   product : Product;
 
   ngOnInit(): void {
+    const productId = this.route.snapshot.paramMap.get('id');
+    if(productId !== null){
+      this.productService.getProduct(productId).subscribe((dados: any) => {
+        this.product = dados;
+        this.profileForm.setValue({
+          idProduto: this.product.idProduto,
+          codigo: this.product.codigo,
+          descricao: this.product.descricao,
+          valor: this.product.valor
+        });
+      });
+    }
   }
 
   post(){
