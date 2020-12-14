@@ -2,6 +2,7 @@ import { Product } from './../../../models/product';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../../service/product.service';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-table-product-editor',
@@ -13,7 +14,8 @@ export class TableProductEditorComponent implements OnInit {
   product = {} as Product;
   products: Product[];
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.getUsers();
@@ -23,6 +25,10 @@ export class TableProductEditorComponent implements OnInit {
       this.products = dados;
     });
   }
+  goToDetalhesByService(product : Product){
+    this.router.navigate(['/product', { id: product.idProduto }]);
+  }
+  
 
   cleanForm(form: NgForm) {
     this.getUsers();

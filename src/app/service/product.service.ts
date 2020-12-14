@@ -25,6 +25,13 @@ export class ProductService {
       retry(2),
       catchError(this.handleError))
   }
+   // Obtem usuário pelo id
+  getProduct(id): Observable<Product> {
+    return this.httpClient.get<Product>(`${this.url}/${id}`)
+      .pipe(
+        retry(2),
+        catchError(this.handleError))
+  }
 
   post(data): Observable<any> {
     return this.httpClient.post<any>(this.url, data)
