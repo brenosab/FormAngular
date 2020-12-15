@@ -1,16 +1,16 @@
   <nav class="navbar is-dark row">
     <!-- logo -->
-    <div class="navbar-brand col-4">
+    <div class="navbar-brand col-3">
       <a class="navbar-item" (click)="goToMainPage()">
         <img  height="50" src="assets/img/angular-logo.png">
       </a>
     </div>
     <!-- menu -->
-    <div class="navbar-menu col-4">
+    <div class="navbar-menu col-5">
       <div class="navbar-start">
         <a class="navbar-item" routerLink=""> Home </a>
-        <a class="navbar-item" routerLink="contact"> Contact </a>
-        <a class="navbar-item" routerLink="users"> Users</a>
+        <a class="navbar-item" routerLink="table"> Users</a>
+        <a class="navbar-item" routerLink="product-table"> Products</a>
       </div>
     </div>
 
@@ -24,13 +24,27 @@
               <button 
                 routerLink="/user" 
                 routerLinkActive="active" 
-                ngbDropdownItem>Cadastro de Usuários
+                ngbDropdownItem>
+                <mat-icon>person</mat-icon>Cadastrar Usuários
               </button>
-              <button 
+              <button
                 routerLink="/table" 
                 routerLinkActive="active" 
-                ngbDropdownItem>Lista de Usuários
+                ngbDropdownItem>
+                <mat-icon class="cards">person</mat-icon>Listar Usuários
               </button>
+              <button 
+              routerLink="/product" 
+              routerLinkActive="active" 
+              ngbDropdownItem>
+              <mat-icon class="cards">qr_code</mat-icon>Cadastrar Produtos
+            </button>
+            <button
+              routerLink="/product-table" 
+              routerLinkActive="active" 
+              ngbDropdownItem>
+              <mat-icon class="cards">qr_code</mat-icon>Listar Produtos
+            </button>
             </div>
         </div> 
     </div>
