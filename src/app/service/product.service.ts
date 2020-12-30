@@ -19,8 +19,9 @@ export class ProductService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   }
 
-  getProducts(): Observable<Product[]>{
-    return this.httpClient.get<Product[]>(this.url)
+  getProducts(pageIndex: number, pageSize: number): Observable<Product[]>{
+    return this.httpClient.get<Product[]>
+    (`${this.url}/?pageIndex=${pageIndex}&pageSize=${pageSize}`)
     .pipe(
       retry(2),
       catchError(this.handleError))
