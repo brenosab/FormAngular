@@ -4,10 +4,12 @@
   </ol>
 </nav>
 <div class="container">
+
   <div class="card list-product">
     <h5 class="card-header">Lista de Produtos</h5>
     <div class="card-body">
-      <table class="table">
+
+      <!-- <table class="table">
           <thead>
             <tr>
               <th scope="col">Id</th>
@@ -34,7 +36,37 @@
               </td>
             </tr>
           </tbody>
-      </table>
+      </table> -->
+      <mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="idProduto">
+          <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.idProduto}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="codigo">
+          <mat-header-cell *matHeaderCellDef> Código </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.codigo}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="descricao">
+          <mat-header-cell *matHeaderCellDef> Descrição </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.descricao}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="valor">
+          <mat-header-cell *matHeaderCellDef> Valor </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.valor}} </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="['idProduto', 'codigo', 'descricao', 'valor']"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: ['idProduto', 'codigo', 'descricao', 'valor']"></mat-row>
+      </mat-table>
+      <mat-paginator 
+        [pageSizeOptions]="[5, 10, 20]" 
+        showFirstLastButtons
+        length="{{totalItemCount}}"
+        pageIndex="{{defaultPageIndex}}"
+        pageSize="{{defaultPageSize}}"
+        (page)="nextStatePagination($event)"
+      ></mat-paginator>
+
     </div>
   </div>
+
 </div>
