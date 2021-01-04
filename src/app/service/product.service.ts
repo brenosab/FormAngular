@@ -59,4 +59,8 @@ export class ProductService {
     )
     return throwError(errorMessage);
   }
+
+  delete(id): Observable<any> {
+    return this.httpClient.delete(`${this.url}/${id}`);
+  }
 }

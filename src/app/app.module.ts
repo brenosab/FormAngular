@@ -21,14 +21,14 @@ import { UserEditorComponent } from './components/user/user-editor/user-editor.c
 import { MainPageEditorComponent } from './components/main-page-editor/main-page-editor.component';
 import { TableProductEditorComponent } from './components/product/table-product-editor/table-product-editor.component';
 
-//import { MatPaginatorModule } from '@angular/material';
-
 import {MatPaginatorModule} from '@angular/material/paginator';
-//import {MatTableDataSource} from '@angular/material/table';
+
 import {MatTableModule} from '@angular/material/table';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { ProductEditorComponent } from './components/product/product-editor/product-editor.component';
+import { SearchInputComponent } from './components/search-input/search-input.component';
+
 registerLocaleData(localePt);
 @NgModule({
   declarations: [
@@ -39,7 +39,7 @@ registerLocaleData(localePt);
     FooterComponent, 
     TableUserEditorComponent, 
     TableProductEditorComponent,
-    UserEditorComponent, MainPageEditorComponent, ProductEditorComponent
+    UserEditorComponent, MainPageEditorComponent, ProductEditorComponent, SearchInputComponent
   ],
   imports: [
     BrowserModule, 

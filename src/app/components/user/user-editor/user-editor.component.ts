@@ -19,7 +19,8 @@ export class UserEditorComponent implements OnInit {
     email: new FormControl('', Validators.required),
     dataNascimento: new FormControl(new Date,Validators.required),
     userType: new FormControl(),
-    tipoUsuario: new FormControl(0,Validators.required)
+    tipoUsuario: new FormControl(0,Validators.required),
+    value: new FormControl('',Validators.required)
   });
 
   powers = ['Employee', 'Client',
@@ -29,6 +30,14 @@ export class UserEditorComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   user: User;
+  Nome: string = "Nome";
+  placeholder: string = "Name";
+
+  //message: string = "teste";
+
+  message = new FormGroup({
+    nome: new FormControl('teste',Validators.required)
+  });
 
   ngOnInit(): void {
     const userId = this.route.snapshot.paramMap.get('id');
@@ -75,56 +84,57 @@ export class UserEditorComponent implements OnInit {
   }
 
   post(){
+    console.log(this.message.value);
     /**** VALIDAÇÃO DOS CAMPOS ****/
-    if(this.profileForm.status == "VALID"){
-      switch (this.profileForm.value.userType) {
-        case 'Employee':
-          this.profileForm.setValue({...this.profileForm.value, tipoUsuario: 1 });
-          break;
-        case 'Client':
-          this.profileForm.setValue({...this.profileForm.value, tipoUsuario: 2 });
-          break;
-        case 'Supervisor':
-          this.profileForm.setValue({...this.profileForm.value, tipoUsuario: 3 });
-          break;
-        case 'Manager':
-          this.profileForm.setValue({...this.profileForm.value, tipoUsuario: 4 });
-          break;
-        default:
-          this.profileForm.setValue({...this.profileForm.value, tipoUsuario: 0 });
-          break;
-      }
-      this.userService
-      .post(this.profileForm.value)
-      .subscribe(hero => {
-        if(hero.idUsuario !== null){
-          Swal.fire(
-            'Success',
-            'Usuário atualizado.',
-            'success'
-          ).then((result) =>{
-            if(result.isConfirmed){
-              window.location.reload();
-            }
-          })
-        }else{
-          Swal.fire(
-            'Error',
-            'Não foi possível atualizar usuário',
-            'error'
-          ).then((result) =>{
-            if(result.isConfirmed){
-              window.location.reload();
-            }
-          })
-        }
-      });
-    }else{
-      Swal.fire({        
-        text:'Preencha todos os campos para finalizar o cadastro',
-        icon:'warning',
-        width: 400   
-      })
-    }
+    // if(this.profileForm.status == "VALID"){
+    //   switch (this.profileForm.value.userType) {
+    //     case 'Employee':
+    //       this.profileForm.setValue({...this.profileForm.value, tipoUsuario: 1 });
+    //       break;
+    //     case 'Client':
+    //       this.profileForm.setValue({...this.profileForm.value, tipoUsuario: 2 });
+    //       break;
+    //     case 'Supervisor':
+    //       this.profileForm.setValue({...this.profileForm.value, tipoUsuario: 3 });
+    //       break;
+    //     case 'Manager':
+    //       this.profileForm.setValue({...this.profileForm.value, tipoUsuario: 4 });
+    //       break;
+    //     default:
+    //       this.profileForm.setValue({...this.profileForm.value, tipoUsuario: 0 });
+    //       break;
+    //   }
+    //   this.userService
+    //   .post(this.profileForm.value)
+    //   .subscribe(hero => {
+    //     if(hero.idUsuario !== null){
+    //       Swal.fire(
+    //         'Success',
+    //         'Usuário atualizado.',
+    //         'success'
+    //       ).then((result) =>{
+    //         if(result.isConfirmed){
+    //           window.location.reload();
+    //         }
+    //       })
+    //     }else{
+    //       Swal.fire(
+    //         'Error',
+    //         'Não foi possível atualizar usuário',
+    //         'error'
+    //       ).then((result) =>{
+    //         if(result.isConfirmed){
+    //           window.location.reload();
+    //         }
+    //       })
+    //     }
+    //   });
+    // }else{
+    //   Swal.fire({        
+    //     text:'Preencha todos os campos para finalizar o cadastro',
+    //     icon:'warning',
+    //     width: 400   
+    //   })
+    // }
   }
 }

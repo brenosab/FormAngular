@@ -53,9 +53,31 @@
         <ng-container matColumnDef="valor">
           <mat-header-cell *matHeaderCellDef> Valor </mat-header-cell>
           <mat-cell *matCellDef="let row"> {{row.valor}} </mat-cell>
+        </ng-container>        
+
+        <ng-container matColumnDef="atualizar">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let row"> 
+            <button 
+              class="btn btn-outline-warning mb-1 btn-lg" 
+              (click)="goToDetalhesByService(row)"
+            >Atualizar
+            </button>  
+          </mat-cell>
         </ng-container>
-        <mat-header-row *matHeaderRowDef="['idProduto', 'codigo', 'descricao', 'valor']"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: ['idProduto', 'codigo', 'descricao', 'valor']"></mat-row>
+        <ng-container matColumnDef="remover">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let row"> 
+            <button 
+              class="btn btn-outline-danger mb-1 btn-lg"
+              (click)="delete(row)"
+            >Remover
+            </button>  
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="['idProduto', 'codigo', 'descricao', 'valor', 'atualizar', 'remover']"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: ['idProduto', 'codigo', 'descricao', 'valor', 'atualizar', 'remover']"></mat-row>
       </mat-table>
       <mat-paginator 
         [pageSizeOptions]="[5, 10, 20]" 

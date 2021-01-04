@@ -1,0 +1,28 @@
+<div>
+    <label>{{ label }}</label>
+    <div class="md-form input-group">
+        <input 
+            input="text" 
+            formControlName="nome"            
+            placeholder="{{_message}}"
+            class="form-control ng-untouched ng-pristine ng-invalid" 
+            aria-describedby="basic-addon1" 
+            minlength="2" 
+            required
+        />
+        <div class="input-group-prepend">
+            <button mat-raised-button color="primary" id="basic-addon1" (click)="onClick()">
+                <mat-icon>search</mat-icon>
+            </button>
+        </div>
+    </div>
+    <!-- <div 
+        *ngIf="profileForm.controls?.value?.errors && 
+        (profileForm.controls?.value?.touched || 
+        profileForm.controls?.value?.dirty)" 
+        class="alert alert-danger"
+    > {{ label }} is required
+    </div> -->
+</div>
+
+<!-- formControlName="value"  -->
