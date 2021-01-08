@@ -23,9 +23,14 @@ export class ProductEditorComponent implements OnInit {
 
   product : Product;
 
+  //UPDATE
+  flagAtualizacao: boolean = false;
+  productCache: Product;
+
   ngOnInit(): void {
     const productId = this.route.snapshot.paramMap.get('id');
     if(productId !== null){
+      this.flagAtualizacao = true;
       this.productService.getProduct(productId).subscribe((dados: any) => {
         this.product = dados;
         this.profileForm.setValue({
@@ -34,6 +39,7 @@ export class ProductEditorComponent implements OnInit {
           descricao: this.product.descricao,
           valor: this.product.valor
         });
+        this.productCache = this.profileForm.value;
       });
     }
   }
@@ -41,6 +47,46 @@ export class ProductEditorComponent implements OnInit {
   post(){
     /**** VALIDAÇÃO DOS CAMPOS ****/
     if(this.profileForm.status == "VALID"){
+      //UPDATE
+      if(this.flagAtualizacao == true){
+        if(this.productCache === this.profileForm.value){
+          Swal.fire({        
+            text:'Nenhuma informação do produto foi modificada',
+            icon:'warning',
+            width: 400   
+          })
+          return;
+        }
+        const productId = this.route.snapshot.paramMap.get('id');
+        this.productService
+          .put(productId, this.profileForm.value)
+          .subscribe(data => {
+            console.log(data);
+            if(data.idProduto !== null){
+              Swal.fire(
+                'Success',
+                'Usuário atualizado.',
+                'success'
+              ).then((result) =>{
+                if(result.isConfirmed){
+                  window.location.reload();
+                }
+              })
+            }else{
+              Swal.fire(
+                'Error',
+                'Não foi possível atualizar usuário',
+                'error'
+              ).then((result) =>{
+                if(result.isConfirmed){
+                  window.location.reload();
+                }
+              })
+            }
+          });
+        return;
+      }
+
       this.productService
       .post(this.profileForm.value)
       .subscribe(data => {

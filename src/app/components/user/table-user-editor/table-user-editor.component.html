@@ -7,34 +7,58 @@
   <div class="card list-user">
     <h5 class="card-header">Lista de Usuários</h5>
     <div class="card-body">
-      <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Id</th>
-              <th scope="col">Nome</th>
-              <th scope="col">CPF</th>
-              <th scope="col">Email</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let user of users">
-              <td>{{user.idUsuario}}</td>
-              <td>{{user.nome}}</td>
-              <td>{{user.cpf}}</td>
-              <td>{{user.email}}</td>
-              <td>
-                <span class="float-right">
-                  <button class="btn btn-outline-warning mb-1 btn-lg" (click)="goToDetalhesByService(user)">
-                    Atualizar
-                  </button>
-                  <button class="btn btn-outline-danger mb-1 btn-lg" (click)="delete(user)">
-                    Remover
-                  </button>
-                </span>
-              </td>
-            </tr>
-          </tbody>
-      </table>
+
+      <mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="idUsuario">
+          <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.idUsuario}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="nome">
+          <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.nome}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="cpf">
+          <mat-header-cell *matHeaderCellDef> CPF </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.cpf}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.email}} </mat-cell>
+        </ng-container>        
+
+        <ng-container matColumnDef="atualizar">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let row"> 
+            <button 
+              class="btn btn-outline-warning mb-1 btn-lg" 
+              (click)="goToDetalhesByService(row)"
+            >Atualizar
+            </button>  
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="remover">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let row"> 
+            <button 
+              class="btn btn-outline-danger mb-1 btn-lg"
+              (click)="delete(row)"
+            >Remover
+            </button>  
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="['idUsuario', 'nome', 'cpf', 'email', 'atualizar', 'remover']"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: ['idUsuario', 'nome', 'cpf', 'email', 'atualizar', 'remover']"></mat-row>
+      </mat-table>
+      <mat-paginator 
+        [pageSizeOptions]="[5, 10, 20]" 
+        showFirstLastButtons
+        length="{{totalItemCount}}"
+        pageIndex="{{defaultPageIndex}}"
+        pageSize="{{defaultPageSize}}"
+        (page)="nextStatePagination($event)"
+      ></mat-paginator>
+
     </div>
   </div>
 </div>

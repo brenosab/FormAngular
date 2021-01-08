@@ -4,39 +4,10 @@
   </ol>
 </nav>
 <div class="container">
-
   <div class="card list-product">
     <h5 class="card-header">Lista de Produtos</h5>
     <div class="card-body">
 
-      <!-- <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Id</th>
-              <th scope="col">Código</th>
-              <th scope="col">Descrição</th>
-              <th scope="col">Valor</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let product of products">
-              <td>{{product.idProduto}}</td>
-              <td>{{product.codigo}}</td>
-              <td>{{product.descricao}}</td>
-              <td>{{product.valor}}</td>
-              <td>
-                <span class="float-right">
-                  <button class="btn btn-outline-warning mb-1 btn-lg" (click)="goToDetalhesByService(product)">
-                    Atualizar
-                  </button>
-                  <button class="btn btn-outline-danger mb-1 btn-lg" (click)="delete(product)">
-                    Remover
-                  </button>
-                </span>
-              </td>
-            </tr>
-          </tbody>
-      </table> -->
       <mat-table [dataSource]="dataSource">
         <ng-container matColumnDef="idProduto">
           <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
@@ -87,8 +58,7 @@
         pageSize="{{defaultPageSize}}"
         (page)="nextStatePagination($event)"
       ></mat-paginator>
-
+      
     </div>
   </div>
-
 </div>

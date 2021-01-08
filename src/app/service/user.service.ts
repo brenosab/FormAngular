@@ -21,12 +21,14 @@ export class UserService {
   }
 
  // Obtem todos os usuários
- getUsers(): Observable<User[]> {
-  return this.httpClient.get<User[]>(this.url)
+ getUsers(pageIndex: number, pageSize: number): Observable<User[]> {
+  return this.httpClient.get<User[]>
+    (`${this.url}/?pageIndex=${pageIndex}&pageSize=${pageSize}`)
     .pipe(
       retry(2),
       catchError(this.handleError))
 }
+
  // Obtem usuário pelo id
  getUser(id): Observable<User> {
   return this.httpClient.get<User>(`${this.url}/${id}`)

@@ -5,18 +5,36 @@
         </div>
     </div>    
     <div class="row form-group">
-        <div class="col-md-6">
-            <app-search-input
-                [label]="Nome"
-                [placeholder]="placeholder"
-                [message]="message"
-            ></app-search-input>
+        <div class="col-md-6 form-group">
+            <label>Nome:</label>
+            <div class="md-form input-group">
+                <input 
+                    input="text" 
+                    formControlName="nome"            
+                    placeholder="First Name"
+                    class="form-control ng-untouched ng-pristine ng-invalid" 
+                    aria-describedby="basic-addon1" 
+                    minlength="2"
+                    required
+                />
+                <div class="input-group-prepend">
+                    <button mat-raised-button color="primary" id="basic-addon1" >
+                        <mat-icon>search</mat-icon>
+                    </button>
+                </div>
+            </div>
         </div>
         <div class="col-md-6 form-group">
             <label>CPF:</label>
             <div class="md-form input-group">
-                <input input="number" formControlName="cpf" aria-label="Last Name"
-                class="form-control ng-untouched ng-pristine ng-invalid" aria-describedby="basic-addon1" required>        
+                <input 
+                    input="number" 
+                    formControlName="cpf" 
+                    aria-label="Last Name"
+                    class="form-control ng-untouched ng-pristine ng-invalid" 
+                    aria-describedby="basic-addon1" 
+                    required
+                >        
                 <div class="input-group-prepend">
                     <button mat-raised-button color="primary" id="basic-addon1">
                         <mat-icon>search</mat-icon>

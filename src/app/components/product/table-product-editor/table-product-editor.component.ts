@@ -3,8 +3,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProductService } from '../../../service/product.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatTableDataSource} from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 @Component({
@@ -54,30 +54,42 @@ export class TableProductEditorComponent implements OnInit {
   }
 
   delete(product : Product){
-    this.productService.delete(product.idProduto)
-    .subscribe(response =>{
-      if(response.idProduto !== null){
-        Swal.fire(
-          'Success',
-          'Produto removido.',
-          'success'
-        ).then((result) =>{
-          if(result.isConfirmed){
-            window.location.reload();
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.productService.delete(product.idProduto)
+        .subscribe(response =>{
+          if(response.idProduto !== null){
+            Swal.fire(
+              'Success',
+              'Produto removido.',
+              'success'
+            ).then((result) =>{
+              if(result.isConfirmed){
+                window.location.reload();
+              }
+            })
+          }else{
+            Swal.fire(
+              'Error',
+              'Não foi possível remover o produto',
+              'error'
+            ).then((result) =>{
+              if(result.isConfirmed){
+                window.location.reload();
+              }
+            })
           }
-        })
-      }else{
-        Swal.fire(
-          'Error',
-          'Não foi possível remover o produto',
-          'error'
-        ).then((result) =>{
-          if(result.isConfirmed){
-            window.location.reload();
-          }
-        })
+        });
       }
-    });
+    })
   }
 
   cleanForm(form: NgForm) {
