@@ -32,7 +32,7 @@ export class UserEditorComponent implements OnInit {
 
   ngOnInit(): void {
     const userId = this.route.snapshot.paramMap.get('id');
-    if(userId !== null){
+    if(userId !== null){      
       this.userService.getUser(userId).subscribe((dados: any) => {
         this.user = dados;
         var _userType = "";
@@ -52,7 +52,7 @@ export class UserEditorComponent implements OnInit {
           default:
             _userType = '';
             break;
-        }        
+        }      
         this.profileForm.setValue({
           id: this.user.idUsuario,
           nome: this.user.nome,
