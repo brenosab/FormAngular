@@ -28,6 +28,7 @@ import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { ProductEditorComponent } from './components/product/product-editor/product-editor.component';
 import { SearchInputComponent } from './components/search-input/search-input.component';
+import { BuyEditorComponent } from './components/buy/buy-editor/buy-editor.component';
 
 registerLocaleData(localePt);
 @NgModule({
@@ -39,7 +40,7 @@ registerLocaleData(localePt);
     FooterComponent, 
     TableUserEditorComponent, 
     TableProductEditorComponent,
-    UserEditorComponent, MainPageEditorComponent, ProductEditorComponent, SearchInputComponent
+    UserEditorComponent, MainPageEditorComponent, ProductEditorComponent, SearchInputComponent, BuyEditorComponent
   ],
   imports: [
     BrowserModule, 
