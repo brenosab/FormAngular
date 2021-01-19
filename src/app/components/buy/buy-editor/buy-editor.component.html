@@ -1,0 +1,47 @@
+<form [formGroup]="profileForm" class="form-group container">
+    <div class="row form-group containerHeader">
+        <div class="md-6">
+            <label>Pedido de Compra</label>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-6 form-group">
+            <label>Usuário</label>
+            <div class="md-form input-group">
+                <input 
+                    input="text" 
+                    formControlName="usuario"            
+                    placeholder="Digite o código ou nome do usuário"
+                    class="form-control ng-untouched ng-pristine ng-invalid" 
+                    aria-describedby="basic-addon1"
+                    minlength="2"
+                    required
+                />
+                <div class="input-group-prepend">
+                    <button mat-raised-button color="primary" (click)="getUser()" id="basic-addon1" >
+                        <mat-icon>search</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 form-group">
+            <label>Produto</label>
+            <div class="md-form input-group">
+                <input 
+                    input="text" 
+                    formControlName="produto"            
+                    placeholder="Digite o código ou nome do produto"
+                    class="form-control ng-untouched ng-pristine ng-invalid" 
+                    aria-describedby="basic-addon2"
+                    minlength="2"
+                    required
+                />
+                <div class="input-group-prepend">
+                    <button mat-raised-button color="primary" (click)="getProduct()" id="basic-addon2" >
+                        <mat-icon>search</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
