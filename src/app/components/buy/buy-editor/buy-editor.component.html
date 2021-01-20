@@ -24,23 +24,85 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 form-group">
-            <label>Produto</label>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-6">
+            <label>Descrição da compra:</label>
             <div class="md-form input-group">
                 <input 
                     input="text" 
-                    formControlName="produto"            
-                    placeholder="Digite o código ou nome do produto"
+                    formControlName="descricao" 
+                    aria-label="Código"
                     class="form-control ng-untouched ng-pristine ng-invalid" 
-                    aria-describedby="basic-addon2"
-                    minlength="2"
+                    aria-describedby="basic-addon1" 
+                    minlength="2" 
                     required
-                />
-                <div class="input-group-prepend">
-                    <button mat-raised-button color="primary" (click)="getProduct()" id="basic-addon2" >
-                        <mat-icon>search</mat-icon>
-                    </button>
+                >        
+            </div>
+            <div *ngIf="profileForm.controls?.descricao?.errors &&(profileForm.controls?.descricao?.touched || profileForm.controls?.descricao?.dirty)" 
+            class="alert alert-danger">
+                Description is required
+            </div>
+        </div>
+    </div>
+    <div class="containerProducts">
+        <div class="row form-group">
+            <div class="col-md-6 form-group">
+                <label>Itens de Compra</label>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-6 form-group">
+                <label>Produto</label>
+                <div class="md-form input-group">
+                    <input 
+                        input="text" 
+                        formControlName="produto"            
+                        placeholder="Digite o código ou nome do produto"
+                        class="form-control ng-untouched ng-pristine ng-invalid" 
+                        aria-describedby="basic-addon2"
+                        minlength="2"
+                        required
+                    />
+                    <div class="input-group-prepend">
+                        <button mat-raised-button color="primary" (click)="getProduct()" id="basic-addon2" >
+                            <mat-icon>search</mat-icon>
+                        </button>
+                    </div>
                 </div>
+            </div>
+            <div class="col-md-2 form-group">
+                <label>Quantidade:</label>
+                <div class="md-form input-group">
+                    <input 
+                        type="number"
+                        formControlName="quantidade"
+                        class="form-control ng-untouched ng-pristine ng-invalid" 
+                        aria-describedby="basic-addon1" 
+                        required
+                        name="myDecimal"
+                        ng-model="myDecimal"
+                        ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"
+                        step="0.0"
+                    >
+                </div>
+                <div *ngIf="profileForm.controls?.quantidade?.errors &&
+                    (profileForm.controls?.quantidade?.touched || 
+                    profileForm.controls?.quantidade?.dirty)" 
+                    class="alert alert-danger">
+                    Code is required
+                </div>
+            </div>
+            <div class="col-md-2 offset-md-2 form-group">
+                <button
+                    class="col-md-12 button-add" 
+                    mat-raised-button 
+                    color="primary" 
+                    id="basic-addon1"
+                    (click)="addProductList()"
+                >
+                    <mat-icon>add</mat-icon>
+                </button>
             </div>
         </div>
     </div>

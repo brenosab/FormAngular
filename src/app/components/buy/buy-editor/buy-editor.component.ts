@@ -15,10 +15,14 @@ export class BuyEditorComponent implements OnInit {
   profileForm = new FormGroup({
     usuario: new FormControl('',Validators.required),
     produto: new FormControl('',Validators.required),
+    descricao: new FormControl('',Validators.required),
+    quantidade: new FormControl('',Validators.required),
   });
 
-  user: User;
+  user: User;  
   product: Product;
+  productList: Product[];
+  quantidades: number[];
 
   constructor(private userService: UserService,
     private productService: ProductService,
@@ -26,7 +30,6 @@ export class BuyEditorComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
   getUser(){
     this.userService.getUser(this.profileForm.value.usuario).subscribe((dados: any) => {
       this.user = dados;
@@ -36,14 +39,26 @@ export class BuyEditorComponent implements OnInit {
       });
     });
   }
-
   getProduct(){
     this.productService.getProduct(this.profileForm.value.produto).subscribe((dados: any) => {
       this.product = dados;
       this.profileForm.setValue({
         ...this.profileForm.value,
-        produto: this.product.codigo + " - " + this.product.descricao
+        produto: dados.codigo + " - " + dados.descricao
       });
     });
+  }
+  addProductList(){
+    console.log(this.product);
+    console.log(this.productList);
+    console.log(this.profileForm.value.quantidade);
+    if(this.profileForm.value.produto !== '' && this.profileForm.value.quantidade !== ''){
+      if(this.productList === undefined || !this.productList.includes(this.product)){
+        this.productList.push(this.product);
+        this.quantidades.push(this.profileForm.value.quantidade);
+      }
+    }else{
+      console.log('teste');
+    }
   }
 }
