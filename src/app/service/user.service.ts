@@ -29,9 +29,15 @@ export class UserService {
       catchError(this.handleError))
 }
 
+_url : string;
  // Obtem usuário pelo id
  getUser(id): Observable<User> {
-  return this.httpClient.get<User>(`${this.url}/${id}`)
+  if(Number.isInteger(Number.parseInt(id)))
+    this._url = `${this.url}/id?id=${id}`
+  else
+    this._url = `${this.url}/id?nome=${id}`
+
+  return this.httpClient.get<User>(this._url)
     .pipe(
       retry(2),
       catchError(this.handleError))

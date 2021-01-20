@@ -26,9 +26,16 @@ export class ProductService {
       retry(2),
       catchError(this.handleError))
   }
+
+  _url : string;
    // Obtem usuário pelo id
   getProduct(id): Observable<Product> {
-    return this.httpClient.get<Product>(`${this.url}/${id}`)
+    if(Number.isInteger(Number.parseInt(id)))
+      this._url = `${this.url}/id?id=${id}`
+    else
+      this._url = `${this.url}/id?descricao=${id}`
+
+    return this.httpClient.get<Product>(this._url)
       .pipe(
         retry(2),
         catchError(this.handleError))
